@@ -8,6 +8,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Search } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -76,27 +77,24 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
         </kbd>
       </button>
       <CommandDialog open={open} onOpenChange={setOpen}>
+        <DialogHeader>
+          <DialogTitle className="sr-only">Search menu</DialogTitle>
+        </DialogHeader>
+
         <CommandInput placeholder="Search all channels and members" />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           {data?.map(({ label, type, data }) => {
-            if (!data?.length) {
-              return null;
-            }
+            if (!data?.length) return null;
 
             return (
               <CommandGroup key={label} heading={label}>
-                {data?.map(({ id, icon, name }) => {
-                  return (
-                    <CommandItem
-                      key={id}
-                      onSelect={() => onClick({ id, type })}
-                    >
-                      {icon}
-                      <span>{name}</span>
-                    </CommandItem>
-                  );
-                })}
+                {data?.map(({ id, icon, name }) => (
+                  <CommandItem key={id} onSelect={() => onClick({ id, type })}>
+                    {icon}
+                    <span>{name}</span>
+                  </CommandItem>
+                ))}
               </CommandGroup>
             );
           })}

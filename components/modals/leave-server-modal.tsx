@@ -47,7 +47,7 @@ const LeaveServerModal = () => {
             Leave Server
           </DialogTitle>
           <DialogDescription className="text-center text-zinc-500">
-            Are you sure you want to leave
+            Are you sure you want to leave{" "}
             <span className="font-semibold text-blue-500">{server?.name}</span>?
             You won't be able to join this server unless you are re-invited
           </DialogDescription>
