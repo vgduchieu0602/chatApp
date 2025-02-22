@@ -9,6 +9,7 @@ import EditServerModal from "@/components/modals/edit-server-modal copy";
 import InviteModal from "@/components/modals/invite-modal";
 import LeaveServerModal from "@/components/modals/leave-server-modal";
 import MembersModal from "@/components/modals/members-modal";
+import MessageFileModal from "@/components/modals/message-file-modal";
 
 import { useEffect, useState } from "react";
 
@@ -36,6 +37,7 @@ export const ModalProvider = () => {
       <DeleteServerModal />
       <DeleteChannelModal />
       <EditChannelModal />
+      <MessageFileModal />
     </>
   );
 };
