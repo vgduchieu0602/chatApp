@@ -66,7 +66,7 @@ const DeleteMessageModal = () => {
               variant="destructive"
               className="bg-red-500"
             >
-              Delete Channel
+              Delete
             </Button>
           </div>
         </DialogFooter>
