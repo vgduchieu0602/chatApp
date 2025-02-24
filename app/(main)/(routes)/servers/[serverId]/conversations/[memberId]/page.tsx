@@ -1,6 +1,7 @@
 import ChatHeader from "@/components/chat/chat-header";
 import { getOrCreateConversation } from "@/lib/conversation";
 import currentProfile from "@/lib/current-profile";
+import db from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
@@ -49,7 +50,7 @@ const MemberIdPage = async ({ params }: MemberIdPageProps) => {
 
   return (
     <div className="bg-white dark:bg-[#313338] flex flex-col h-full">
-      <ChatHeader 
+      <ChatHeader
         imageUrl={otherMember.profile.imageUrl}
         name={otherMember.profile.name}
         serverId={params.serverId}
