@@ -31,6 +31,12 @@ export const useChatQuery = ({
     );
 
     const res = await fetch(url);
+    if (!res.ok) {
+      // Xử lý HTTP error status
+      const errorText = await res.text();
+      throw new Error(`API Error: ${res.status} - ${errorText}`);
+    }
+
     return res.json();
   };
 
@@ -39,8 +45,10 @@ export const useChatQuery = ({
       queryKey: [queryKey],
       queryFn: fetchMessages,
       getNextPageParam: (lastPage) => lastPage?.nextCursor,
-      refetchInterval: isConnected ? false : 1000,
-      // refetchInterval: 1000,
+      // refetchInterval: isConnected ? false : 1000,
+      refetchInterval: 1000,
+      staleTime: isConnected ? Infinity : 0,
+      refetchOnWindowFocus: !isConnected,
     });
 
   return {
