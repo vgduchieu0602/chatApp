@@ -4,6 +4,9 @@
 - Thêm, sửa, xóa Server
 - Thêm, sửa, xóa Channel
 - Thêm, sửa, xóa Message
+- Quản lý member
+- Tìm kiếm channel, member
+- Direct message
 - Video call
 - Voice call
 - Chat real-time
