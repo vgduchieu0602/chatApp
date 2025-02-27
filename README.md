@@ -2,6 +2,7 @@
 
 - Đăng nhập, đăng ký với Clerk
 - Light Mode, Dark Mode
+- Mời người dùng tham gia Server
 - Thêm, sửa, xóa Server
 - Thêm, sửa, xóa Channel
 - Thêm, sửa, xóa Message
