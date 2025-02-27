@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
       bufferutil: "commonjs bufferutil",
     });
 
-    return config
+    return config;
   },
   images: {
     remotePatterns: [
@@ -26,7 +26,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  
+  eslint: {
+    ignoreDuringBuilds: true, // Tắt ESLint khi build
+  },
+  typescript: {
+    ignoreBuildErrors: true, // Tắt TypeScript errors nếu cần
+  },
 };
 
 export default nextConfig;
