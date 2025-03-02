@@ -78,7 +78,7 @@ const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
       onClientUploadComplete={(res) => {
         if (res?.[0]) {
           // Thêm type vào URL dưới dạng query param
-          const urlWithType = `${res[0].ufsUrl}?type=${encodeURIComponent(
+          const urlWithType = `${res[0].url}?type=${encodeURIComponent(
             res[0].type
           )}`;
           onChange(urlWithType);
