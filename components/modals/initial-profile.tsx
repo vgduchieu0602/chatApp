@@ -34,14 +34,12 @@ const formSchema = z.object({
   name: z.string().min(3, {
     message: "Server name is required",
   }),
-  imageUrl: z.string().min(1, {
+  imageUrl: z.string().nonempty({
     message: "Server image URL is required",
   }),
 });
 
 const InitialModal = () => {
-  //Khi sử dụng useForm với defaultValues, nếu giá trị này phụ thuộc vào dữ liệu không có sẵn ở server sẽ gây chênh lệch
-  //=> Delay form render cho đến khi mounted
   const [isMounted, setIsMounted] = useState(false);
 
   const router = useRouter();
@@ -66,12 +64,7 @@ const InitialModal = () => {
       await axios.post("/api/servers", values);
 
       form.reset();
-
-      //làm mới dữ liệu mà không reload lại trang
-      //+ Nếu dùng NextJS app router, phương thức re-render components trên server để fetch data mới
-      //+ Đảm bảo UI đồng bộ với dữ liệu mới từ backend mà không mất trạng thái hiện tại
       router.refresh();
-
       window.location.reload();
     } catch (error) {
       console.log("Error in submit: ", error);
@@ -79,7 +72,7 @@ const InitialModal = () => {
   };
 
   if (!isMounted) {
-    return null; // Return null khi chưa mount component để tránh render lại khi formState.isSubmitting đang true khi component đã unmount
+    return null;
   }
 
   return (
