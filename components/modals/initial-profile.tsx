@@ -68,6 +68,8 @@ const InitialModal = () => {
       window.location.reload();
     } catch (error) {
       console.log("Error in submit: ", error);
+    } finally {
+      router.refresh();
     }
   };
 
