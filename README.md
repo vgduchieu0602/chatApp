@@ -1,7 +1,8 @@
 ## 🚀 Tính Năng Nổi Bật
 
-- Đăng nhập, đăng ký với Clerk
+- Đăng nhập, đăng ký
 - Light Mode, Dark Mode
+- Mời người dùng tham gia Server
 - Thêm, sửa, xóa Server
 - Thêm, sửa, xóa Channel
 - Thêm, sửa, xóa Message
