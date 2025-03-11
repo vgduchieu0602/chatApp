@@ -87,6 +87,9 @@ const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
       onUploadError={(error: Error) => {
         console.log(error);
       }}
+      onDrop={(acceptedFiles) => {
+        console.log("Accepted files: ", acceptedFiles);
+      }}
     />
   );
 };
