@@ -42,6 +42,7 @@ const NavigationItem = ({ id, imageUrl, name }: NavigationItemProps) => {
             src={imageUrl}
             alt="Channel"
             sizes="(max-width: 768px) 48px, 48px"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
           />
         </div>
       </button>
