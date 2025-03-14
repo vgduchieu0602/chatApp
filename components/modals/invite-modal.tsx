@@ -16,6 +16,7 @@ import { Check, Copy, RefreshCw } from "lucide-react";
 import useOrigin from "@/hooks/use-origin";
 import { useState } from "react";
 import axios from "axios";
+import { cn } from "@/lib/utils";
 
 const InviteModal = () => {
   const { onOpen, isOpen, onClose, type, data } = useModal();
@@ -67,10 +68,18 @@ const InviteModal = () => {
           <div className="flex items-center mt-2 gap-x-2">
             <Input
               disabled={isLoading}
-              className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offet-0"
+              className={cn(
+                "bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offet-0",
+                copied && "border-2 border-green-500"
+              )}
               value={inviteUrl}
             />
-            <Button disabled={isLoading} size="icon" onClick={onCopy}>
+            <Button
+              disabled={isLoading}
+              size="icon"
+              onClick={onCopy}
+              className={cn(copied && "border-2 border-green-500")}
+            >
               {copied ? (
                 <Check className="h-4 w-4" />
               ) : (

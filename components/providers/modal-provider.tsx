@@ -16,6 +16,8 @@ import { useEffect, useState } from "react";
 
 export const ModalProvider = () => {
   //Tránh cập nhật state trên component đã unmount
+  //vì nó không phải là một react server component, sự khác biệt giữa react server component và client componet
+  //đều trong SSR nhưng sử dụng client có nghĩa là nó cũng được hiển thị lên client nên gây ra lỗi hydration
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
